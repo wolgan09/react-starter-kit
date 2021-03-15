@@ -1,0 +1,15 @@
+
+// base: "stations"
+// clouds: {all: 100}
+// cod: 200
+// coord: {lon: 73.86, lat: 18.52}
+// dt: 1600972300
+// id: 1259229
+// main: {temp: 295.93, feels_like: 298.35, temp_min: 295.93, temp_max: 295.93, pressure: 1009, humidity: 87,…}
+// name: "Pune"
+// sys: {country: "IN", sunrise: 1600995237, sunset: 1601038705}
+// timezone: 19800
+// visibility: 10000
+// weather: [{id: 804, main: "Clouds", description: "overcast clouds", icon: "04n"}]
+// 0: {id: 804, main: "Clouds", description: "overcast clouds", icon: "04n"}
+// wind: {speed: 2.17, deg: 261}

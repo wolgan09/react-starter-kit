@@ -1,0 +1,51 @@
+{
+    "weather": [
+      {
+        "id": 1,
+        "name": "Pune",
+        "sunset": "1601038705",
+        "sunrise": "1600995237",
+        "temperature": "24",
+        "timezone":"19800",
+        "description":"Cloudy"
+      },
+      {
+        "id": 2,
+        "name": "Vadodara",
+        "sunset": "1601038705",
+        "sunrise": "1600995237",
+        "temperature": "42",
+        "timezone":"19800",
+        "description":"Sunny"
+  
+      },
+      {
+        "id": 3,
+        "name": "Ahmedabad",
+        "sunset": "1601038705",
+        "sunrise": "1600995237",
+        "temperature": "42",
+        "timezone":"19800",
+        "description":"Cloudy"
+      },
+      {
+        "id": 4,
+        "name": "Mumbai",
+        "sunset": "1601038705",
+        "sunrise": "1600995237",
+        "temperature": "42",
+        "timezone":"19800",
+        "description":"Cloudy"
+      },
+      {
+        "id": 5,
+        "name": "Gandhinagar",
+        "sunset": "1601038705",
+        "sunrise": "1600995237",
+        "temperature": "42",
+        "timezone":"19800",
+        "description":"Cloudy"
+      }
+    ]
+  }
+  
