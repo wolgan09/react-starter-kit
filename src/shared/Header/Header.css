@@ -17,10 +17,7 @@
     display: flex;
 }
 .menu-items{
-    margin-left: 5%;
-}
-
-.menu-items > button {
+    padding: 0 12px 0px;
     text-align: center;
     text-decoration: none;
     font-size: 14px;
@@ -31,4 +28,16 @@
     transition: left .2s ease-out,width .2s ease-out;
     font-weight: 500;
     text-transform: uppercase;
+}
+
+.menu-items > button {
+    
+}
+
+.menu-items:hover{
+    border-bottom-color: #ee5f73;
+    border-bottom-style: solid;
+    border-bottom-width: 4px;
+    -webkit-transition: left .1s ease-out,border-color .2s ease-in;
+    transition: left .1s ease-out,border-color .2s ease-in;
 }

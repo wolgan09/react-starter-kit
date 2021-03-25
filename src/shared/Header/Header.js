@@ -8,6 +8,8 @@ import PermIdentityIcon from '@material-ui/icons/PermIdentity';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import SearchIcon from '@material-ui/icons/Search';
 import LocalMallOutlinedIcon from '@material-ui/icons/LocalMallOutlined';
+import Dropdown from '../../components/Elements/Dropdown/Dropdown';
+import { useState } from 'react';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -81,6 +83,15 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
 export default function Header() {
+  
+  const catagoryList = [
+    {name: 'men' , focused:false} ,
+    {name: 'women' , focused:false},
+    {name: 'offers' , focused:false},
+    {name: 'home&living' , focused:false},
+    {name: 'kids' , focused:false} ]
+    const [menuFocus, setMenuFocus] = useState(catagoryList); 
+
     const classes = useStyles();
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -91,6 +102,16 @@ export default function Header() {
     const handleProfileMenuOpen = (event) => {
       setAnchorEl(event.currentTarget);
     };
+
+    const isCategoryFocused = (catagoryName, isFocused) => {
+      
+     const updatedCat = catagoryList.filter((cat) => { 
+        if(cat.name === catagoryName){
+        cat.focused = isFocused;
+      }}
+       )
+      setMenuFocus(...catagoryList, ...updatedCat);
+    }    
   
     const handleMobileMenuClose = () => {
       setMobileMoreAnchorEl(null);
@@ -100,7 +121,9 @@ export default function Header() {
       setAnchorEl(null);
       handleMobileMenuClose();
     };
+
         return (
+          
             <div className={classes.grow}>
       <AppBar position="static" color={classes.header} >
         <Toolbar>
@@ -111,9 +134,11 @@ export default function Header() {
           
           <Grid item xs={12} sm={5}>
           <ul className="sub-menu">
-          {['men','women','kids','home&living','offers'].map((i) => ( 
-              <li className="menu-items"> 
-              <Link to={`/shop/${i}`}><Button >{i}</Button> </Link>
+          {catagoryList.map((i) => ( 
+              <li className="menu-items" onMouseEnter={() =>  isCategoryFocused(i,true) }
+              onMouseLeave={(i) => { i.focused = true; } }>
+              <Link to={`/shop/${i.name}`}><Button >{i.name}</Button> </Link>
+              { i.focused ? <Dropdown show={true} data={i.name}/> : null }
               </li>
             ))}
           </ul>
@@ -139,14 +164,14 @@ export default function Header() {
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
             <IconButton aria-label="show 4 new mails" color="inherit">
-              <Badge badgeContent={4} color="secondary">
+              
               <PermIdentityIcon />
-              </Badge>
+              
             </IconButton>
             <IconButton aria-label="show 17 new notifications" color="inherit">
-              <Badge badgeContent={17} color="secondary">
+              
                 <FavoriteBorderIcon />
-              </Badge>
+              
             </IconButton>
             <IconButton
               edge="end"
@@ -155,8 +180,9 @@ export default function Header() {
               aria-haspopup="true"
               onClick={handleProfileMenuOpen}
               color="inherit"
-            >
+            ><Badge badgeContent={2} color="secondary">
               <LocalMallOutlinedIcon/>
+              </Badge>
             </IconButton>
           </div>
           </Grid>
